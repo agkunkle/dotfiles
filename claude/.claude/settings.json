@@ -10,6 +10,11 @@
       "Bash(strace:*)",
       "Bash(gdb:*)"
     ],
+    "deny": [
+      "Artifact",
+      "SendFeedback",
+      "ShareOnboardingGuide"
+    ],
     "defaultMode": "auto"
   },
   "model": "sonnet",
