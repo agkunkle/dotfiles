@@ -67,5 +67,6 @@
     "editor.minimap.enabled": false,
     "breadcrumbs.enabled": false,
     "window.density.editorTabHeight": "compact",
-    "workbench.editor.showTabs": "single"
+    "workbench.editor.showTabs": "single",
+    "terminal.integrated.showLinkHover": false
 }
