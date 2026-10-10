@@ -61,6 +61,42 @@ Install these in the Windows window and in each WSL or SSH window:
 `tomoki1207.pdf`, `ms-vscode.live-server`. VS Code offers an "Install in ..." button
 on first use in a remote window.
 
+## Install commands
+
+Run these from a WSL shell. Replace `<name>` with your Windows user name.
+Use `--list-extensions` instead of `--install-extension` to check what is installed.
+These commands were tested on WSL (Ubuntu) with the Windows VS Code user install.
+
+WSL side (the VS Code Server):
+
+    S=$(ls -d ~/.vscode-server/bin/*/bin/code-server | head -1)
+    "$S" --install-extension tomoki1207.pdf --install-extension ms-vscode.live-server
+
+Windows side:
+
+    U=<name>
+    D="/mnt/c/Users/$U/AppData/Local/Programs/Microsoft VS Code"
+    J=$(wslpath -w "$(ls -d "$D"/*/resources/app/out/cli.js | head -1)")
+    cd /mnt/c/Users/$U
+    ELECTRON_RUN_AS_NODE=1 WSLENV=ELECTRON_RUN_AS_NODE "$D/Code.exe" "$J" \
+      --install-extension tomoki1207.pdf --install-extension ms-vscode.live-server
+
+Why not plain `code`:
+
+- In a WSL shell outside a VS Code terminal, `code` points at a stale session socket
+  and fails with `ENOENT ... vscode-ipc-....sock`. `code-server` does not need a session.
+- `code.cmd` fails in WSL. Bash runs it as a script (`@echo: not found`), and `cmd.exe /c`
+  fails on the space in `Microsoft VS Code`. The commands above copy what `code.cmd` does.
+- Pass a Windows path (`wslpath -w`) to `Code.exe`. A WSL path gives `MODULE_NOT_FOUND`.
+- A VS Code update changes the hash folder under the install directory. The `*` glob
+  handles that.
+
+SSH hosts: not tested. In an SSH window, a terminal `code --install-extension <id>`
+should work. Or use the "Install in SSH: <host>" button.
+
+Not installed: `markdown-preview-enhanced`. `settings.json` has options for it, but
+the built-in Markdown preview is what `*.md` uses now.
+
 ## Not tested in a real window
 
 Some items were set up without testing: `workbench.editor.autoLockGroups` locking,
