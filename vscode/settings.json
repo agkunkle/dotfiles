@@ -53,5 +53,10 @@
         "workbench.action.navigateUp",
         "workbench.action.navigateDown",
         "vscode.setEditorLayout"
-    ]
+    ],
+    "terminal.integrated.fontSize": 13,
+    "workbench.editorAssociations": {
+        "*.md": "vscode.markdown.preview.editor",
+        "*.pdf": "pdf.preview"
+    }
 }
