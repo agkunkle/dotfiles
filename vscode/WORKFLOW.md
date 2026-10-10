@@ -44,6 +44,45 @@ Settings and keys come from `settings.json` and `keybindings.json` in this folde
 | `.html`  | Opens as source. Use the Live Preview button (`ms-vscode.live-server`) |
 | Raw `.md`| Use "Reopen Editor With..." and choose the text editor         |
 
+## Hidden bars
+
+`settings.json` hides the Activity Bar (`workbench.activityBar.location: "hidden"`) and
+the Status Bar (`workbench.statusBar.visible: false`). Keys are Windows defaults, from
+memory. Remove those two settings to bring the bars back for good.
+
+Activity Bar (left icon strip):
+
+| You lost                  | How to get it                          |
+|---------------------------|----------------------------------------|
+| Explorer                  | `Ctrl+Shift+E`                         |
+| Search                    | `Ctrl+Shift+F`                         |
+| Source Control            | `Ctrl+Shift+G` (not `Alt+Shift+G`)     |
+| Run and Debug             | `Ctrl+Shift+D`                         |
+| Extensions                | `Ctrl+Shift+X`                         |
+| Settings gear             | `Ctrl+,`                               |
+| Anything else             | Command Palette: `Ctrl+Shift+P` or `F1` |
+| Show or hide the side bar | `Ctrl+B`                               |
+
+Status Bar (bottom strip):
+
+| You lost                      | How to get it                                                   |
+|-------------------------------|-----------------------------------------------------------------|
+| Host and connection           | The window title shows it, such as `workspace [WSL: Ubuntu-22.04]`. For the remote menu, open the Command Palette and type `Remote`. |
+| Git branch and sync           | Source Control view, or `git branch --show-current`             |
+| Error and warning counts      | `Ctrl+Shift+M` (Problems view)                                  |
+| Line and column               | `Ctrl+G` (Go to Line) shows the current line                    |
+| Language, encoding, EOL       | Command Palette: `Change Language Mode`, `Change File Encoding`, `Change End of Line Sequence` |
+| Notification bell             | Command Palette: `Notifications: Toggle Notifications Center`   |
+| Vim mode text                 | Hidden if `vscodevim` shows it only in the Status Bar           |
+| Extension status items        | Look in the extension's own view or Command Palette             |
+
+To see both bars for one session, run `View: Toggle Status Bar Visibility` and
+`View: Toggle Activity Bar Visibility` from the Command Palette.
+
+Other UI settings in `settings.json`: no command center, no layout controls, no minimap,
+no breadcrumbs, compact tab height, `workbench.editor.showTabs: "single"`.
+`window.title` stays `${rootName}`. It already includes the remote name.
+
 ## Problems
 
 - **Clicking a file splits NW.** NW is locked. Click its lock icon, or run
