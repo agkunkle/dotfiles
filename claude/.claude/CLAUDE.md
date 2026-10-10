@@ -150,13 +150,18 @@ sequence, state, dependency, ownership, or data flow.
 
 ---
 
-## projview (file viewer)
-Use `projview` to show the user a file in a separate window while we chat. Do this for
-rendered Markdown, images, long code, CSV and JSON. Run it detached so the chat continues:
-`(nohup projview FILE[:LINE] >/dev/null 2>&1 &)`.
-- One window is shared. A second call adds a tab. It does not start a new process.
+## File viewer (VS Code)
+Use the VS Code CLI to show the user a file in the editor while we chat. Do this for
+Markdown, images, long code, CSV and JSON. The command opens the file in the window that
+owns this terminal.
+`code -r -g FILE[:LINE]`
+- `-r` reuses the current window. A second file opens as a new editor tab.
 - `FILE:LINE` jumps to a line. Use it when you point at code.
 - Open files reload on change, so edit the file and the user sees the update.
+- Images render natively. JSON and CSV open as text.
+- Markdown renders only if the user sets
+  `"workbench.editorAssociations": {"*.md": "vscode.markdown.preview.editor"}`.
+- VS Code does not render HTML. It opens as source.
 - Do not open files the user did not ask to see, unless a rendered view helps.
 
 ---
