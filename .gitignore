@@ -1,0 +1,10 @@
+# Secrets and machine-local files. Never commit these.
+.credentials.json
+config.json
+history.jsonl
+settings.local.json
+*.local
+*.key
+*.pem
+.env
+.env.*

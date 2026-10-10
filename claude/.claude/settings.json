@@ -1,0 +1,58 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(checksec:*)",
+      "Bash(nm:*)",
+      "Bash(c++filt:*)",
+      "Bash(objdump:*)",
+      "Bash(readelf:*)",
+      "Bash(./uaf:*)",
+      "Bash(strace:*)",
+      "Bash(gdb:*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "sonnet",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/user/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/user/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "playwright@claude-plugins-official": true,
+    "playground@claude-plugins-official": true
+  },
+  "syntaxHighlightingDisabled": false,
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high",
+      "autoCompactWindow": 180000
+    },
+    "claude-haiku-5-5": {
+      "autoCompactWindow": 180000
+    },
+    "claude-sonnet-5-5": {
+      "autoCompactWindow": 300000,
+      "effortLevel": "high"
+    }
+  },
+  "theme": "dark",
+  "verbose": false,
+  "useAutoModeDuringPlan": false,
+  "BASH_MAX_OUTPUT_LENGTH": 400
+}
