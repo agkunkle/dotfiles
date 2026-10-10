@@ -55,6 +55,7 @@
         "vscode.setEditorLayout"
     ],
     "terminal.integrated.fontSize": 13,
+    "workbench.editor.closeEmptyGroups": false,
     "workbench.editorAssociations": {
         "*.md": "vscode.markdown.preview.editor",
         "*.pdf": "pdf.preview"
