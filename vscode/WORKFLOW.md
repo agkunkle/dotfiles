@@ -44,6 +44,24 @@ Settings and keys come from `settings.json` and `keybindings.json` in this folde
 | `.html`  | Opens as source. Use the Live Preview button (`ms-vscode.live-server`) |
 | Raw `.md`| Use "Reopen Editor With..." and choose the text editor         |
 
+## Per-project color theme
+
+By default the theme is a user setting (`workbench.colorTheme`). It applies to every
+project. To give one project its own theme, set it in that project's
+`.vscode/settings.json`:
+
+    { "workbench.colorTheme": "<exact theme name from Ctrl+K Ctrl+T>" }
+
+- The file lives in the project folder. For a WSL or SSH project, it is on the remote side.
+  It is not part of this dotfiles repo.
+- After the setting exists in the project file, the theme picker should write new choices
+  there. This is not tested. Check it once in a real window.
+- To keep the file out of the project's git history, add `.vscode/` to the project's
+  `.git/info/exclude`. Commit it instead if you want to share the theme.
+- `workbench.colorCustomizations` works the same way, for example an accent color per
+  project. The Peacock extension (`johnpapa.vscode-peacock`) automates this. It is not installed.
+- No theme is set in the user settings now. New projects use the VS Code default.
+
 ## Hidden bars
 
 `settings.json` hides the Activity Bar (`workbench.activityBar.location: "hidden"`) and
