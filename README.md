@@ -11,6 +11,19 @@ each package into `$HOME`.
 | `bash`   | `~/.bashrc`                                                     |
 | `git`    | `~/.gitconfig`                                                  |
 
+## Copy-only (not stowed)
+
+| Directory | Source                                                      |
+|-----------|-------------------------------------------------------------|
+| `vscode`  | `%APPDATA%\Code\User` (settings.json, keybindings.json)     |
+
+Windows and WSL VS Code windows both read the Windows user settings. The copy is a
+backup. Do not stow it across the WSL/Windows boundary. `install.sh` skips any
+directory with a `.nostow` file. To refresh the copy:
+
+    U=/mnt/c/Users/<name>/AppData/Roaming/Code/User
+    cp "$U/settings.json" "$U/keybindings.json" vscode/
+
 ## Install
 
     sudo apt install stow

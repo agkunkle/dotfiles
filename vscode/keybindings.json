@@ -1,0 +1,57 @@
+[
+    {
+        "key": "alt+up",
+        "command": "-workbench.action.terminal.focusPreviousPane"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\u001b\r"
+        },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+/",
+        "command": "-workbench.action.chat.focusTip",
+        "when": "inChat || inChatComposer || inChat && inChatComposer || inChat && inChatTip || inChatComposer && inChatTip"
+    },
+    {
+        "key": "ctrl+shift+/",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "alt+shift+g",
+        "command": "vscode.setEditorLayout",
+        "args": {
+            "orientation": 0,
+            "groups": [
+                {
+                    "size": 0.5,
+                    "groups": [
+                        { "size": 0.5 },
+                        { "size": 0.5 }
+                    ]
+                },
+                { "size": 0.5 }
+            ]
+        }
+    }
+]

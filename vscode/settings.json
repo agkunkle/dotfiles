@@ -1,0 +1,57 @@
+{
+    "workbench.startupEditor": "none",
+    "chat.viewSessions.orientation": "stacked",
+    "chat.mcp.gallery.enabled": true,
+    "git.autofetch": true,
+    "security.allowedUNCHosts": [
+        "wsl$"
+    ],
+    "extensions.ignoreRecommendations": true,
+    "editor.fontSize": 12,
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.selectedModel": "default",
+    "editor.mouseWheelZoom": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false,
+    "chat.agentFilesLocations": {
+        ".github/agents": false
+    },
+    "search.useReplacePreview": false,
+    "workbench.editor.enablePreview": true,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.initialHint": false,
+    "claudeCode.useTerminal": true,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.rightClickBehavior": "paste",
+    "terminal.integrated.copyOnSelection": true,
+    "markdown.preview.fontSize": 12,
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "workbench.panel.defaultLocation": "right",
+    "terminal.integrated.enableVisualBell": true,
+    "accessibility.signals.terminalBell": {
+        "sound": "on"
+    },
+    "markdown-preview-enhanced.codeBlockTheme": "vscode.css",
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "window.title": "${rootName}",
+    "git.enableSmartCommit": true,
+    "chat.disableAIFeatures": true,
+    "update.showReleaseNotes": false,
+    "optimusMonitor.graphWindowSeconds": 60,
+    "editor.wordWrap": "on",
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.defaultLocation": "editor",
+    "workbench.editor.autoLockGroups": {
+        "terminalEditor": true
+    },
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.navigateLeft",
+        "workbench.action.navigateRight",
+        "workbench.action.navigateUp",
+        "workbench.action.navigateDown",
+        "vscode.setEditorLayout"
+    ]
+}

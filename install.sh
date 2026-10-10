@@ -18,6 +18,10 @@ if [ ${#packages[@]} -eq 0 ]; then
 fi
 
 for pkg in "${packages[@]}"; do
+  if [ -e "$pkg/.nostow" ]; then
+    echo "skip $pkg (copy only, has .nostow)"
+    continue
+  fi
   echo "stow $pkg"
   stow --restow --target="$HOME" "$pkg"
 done
