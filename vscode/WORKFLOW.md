@@ -74,7 +74,7 @@ Activity Bar (left icon strip):
 |---------------------------|----------------------------------------|
 | Explorer                  | `Ctrl+Shift+E`                         |
 | Search                    | `Ctrl+Shift+F`                         |
-| Source Control            | `Ctrl+Shift+G` (not `Alt+Shift+G`)     |
+| Source Control            | Off. `git.enabled` is `false` (see Lean setup) |
 | Run and Debug             | `Ctrl+Shift+D`                         |
 | Extensions                | `Ctrl+Shift+X`                         |
 | Settings gear             | `Ctrl+,`                               |
@@ -86,7 +86,7 @@ Status Bar (bottom strip):
 | You lost                      | How to get it                                                   |
 |-------------------------------|-----------------------------------------------------------------|
 | Host and connection           | The window title shows it, such as `workspace [WSL: Ubuntu-22.04]`. For the remote menu, open the Command Palette and type `Remote`. |
-| Git branch and sync           | Source Control view, or `git branch --show-current`             |
+| Git branch and sync           | Git is off in VS Code. Run `git branch --show-current` in a terminal. |
 | Error and warning counts      | `Ctrl+Shift+M` (Problems view)                                  |
 | Line and column               | `Ctrl+G` (Go to Line) shows the current line                    |
 | Language, encoding, EOL       | Command Palette: `Change Language Mode`, `Change File Encoding`, `Change End of Line Sequence` |
@@ -153,6 +153,57 @@ should work. Or use the "Install in SSH: <host>" button.
 
 Not installed: `markdown-preview-enhanced`. `settings.json` has options for it, but
 the built-in Markdown preview is what `*.md` uses now.
+
+## Lean setup
+
+Goal: several VS Code windows on one box, used only as a Claude host and a file
+navigator/viewer. No code indexing, no language servers, no git.
+
+Before this change, two WSL windows ran a 681 MB file watcher, two HTML language
+servers (217 and 184 MB), and JSON and Markdown servers (about 60 to 80 MB each).
+After disabling the HTML and JSON features, no language-server processes were running
+and the WSL VS Code server used about 750 MB. Some of the drop may come from closing
+windows, so measure again with the same windows open.
+
+What was turned off:
+
+| Area                  | Change                                                                  |
+|-----------------------|-------------------------------------------------------------------------|
+| Telemetry, experiments| `telemetry.telemetryLevel: "off"`, `workbench.enableExperiments: false` |
+| Updates               | `extensions.autoUpdate` is `"off"` (VS Code rewrote it from `false`) and `extensions.autoCheckUpdates` is `false`. Update extensions by hand. |
+| Git                   | `git.enabled: false`, `git.autofetch: false`, `git.autoRepositoryDetection: false` |
+| Task detection        | `npm`, `grunt`, `gulp`, `jake`, and `task` `.autoDetect: "off"`          |
+| JSON and TypeScript   | `json.schemaDownload.enable: false`, TypeScript and JavaScript validation off, no type acquisition |
+| File watcher          | `files.watcherExclude` for `.venv`, `venv`, `__pycache__`, `build`, `dist`, `target` |
+| Editor intelligence   | No suggestions, parameter hints, code lens, lightbulb, occurrence or semantic highlighting |
+
+Uninstalled (Windows): Python, Pylance, Python Environments, cpptools, Prettier, docx
+reader, Codex audio, ChatGPT. Uninstalled (WSL): ChatGPT, Markdown PDF, CMake Highlight.
+To uninstall, use the install commands above with `--uninstall-extension <id>`.
+
+Still installed: Claude Code, Remote SSH (with SSH Edit and Remote Explorer), Remote WSL,
+Live Preview, PDF viewer, Vim (Windows only), File Change Follower (WSL only).
+
+Disabled built-in extensions: HTML Language Features, JSON Language Features. Done in the
+UI (Extensions view, search `@builtin`). The CLI cannot do it: `code-server --disable-extension`
+does nothing useful, and `code --disable-extension` lasts for one session. The persistent list
+is in `%APPDATA%\Code\User\globalStorage\state.vscdb`, key `extensionsIdentifiers/disabled`.
+Do not edit that file while VS Code runs.
+
+The other built-ins (CSS, PHP, TypeScript, Emmet, npm, debug, GitHub, authentication,
+Merge Conflict, Simple Browser, Terminal Suggest, Notebook, References View, Git) are left on.
+They start only when a matching file or action appears. If you open `.ts` or `.js` files,
+disable TypeScript Language Features too.
+
+Note: the Claude Code extension is installed but disabled in the Windows profile
+(`anthropic.claude-code` is in the disabled list). Claude runs in the terminal, so the
+IDE features (`/ide`) are not active. Enable it in the Extensions view if you want them.
+
+To undo: remove the settings above, enable the built-ins in the Extensions view, and
+reinstall extensions with the install commands.
+
+To measure: run `Developer: Show Running Extensions` and `Developer: Open Process Explorer`.
+On WSL, `ps -eo rss,args | grep .vscode-server` lists server processes.
 
 ## Not tested in a real window
 

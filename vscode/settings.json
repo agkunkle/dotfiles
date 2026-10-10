@@ -2,7 +2,7 @@
     "workbench.startupEditor": "none",
     "chat.viewSessions.orientation": "stacked",
     "chat.mcp.gallery.enabled": true,
-    "git.autofetch": true,
+    "git.autofetch": false,
     "security.allowedUNCHosts": [
         "wsl$"
     ],
@@ -68,5 +68,42 @@
     "breadcrumbs.enabled": false,
     "window.density.editorTabHeight": "compact",
     "workbench.editor.showTabs": "single",
-    "terminal.integrated.showLinkHover": false
+    "terminal.integrated.showLinkHover": false,
+    "telemetry.telemetryLevel": "off",
+    "workbench.enableExperiments": false,
+    "extensions.autoUpdate": "off",
+    "extensions.autoCheckUpdates": false,
+    "git.enabled": false,
+    "git.autoRepositoryDetection": false,
+    "git.openRepositoryInParentFolders": "never",
+    "npm.autoDetect": "off",
+    "grunt.autoDetect": "off",
+    "gulp.autoDetect": "off",
+    "jake.autoDetect": "off",
+    "task.autoDetect": "off",
+    "json.schemaDownload.enable": false,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
+    "files.watcherExclude": {
+        "**/.venv/**": true,
+        "**/venv/**": true,
+        "**/__pycache__/**": true,
+        "**/build/**": true,
+        "**/dist/**": true,
+        "**/target/**": true
+    },
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.codeLens": false,
+    "editor.lightbulb.enabled": "off",
+    "editor.occurrencesHighlight": "off",
+    "editor.semanticHighlighting.enabled": false,
+    "workbench.tips.enabled": false
 }
