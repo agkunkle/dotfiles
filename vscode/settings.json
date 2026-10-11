@@ -6,7 +6,7 @@
     "security.allowedUNCHosts": [
         "wsl$"
     ],
-    "extensions.ignoreRecommendations": true,
+    "extensions.ignoreRecommendations": true,
     "editor.fontSize": 12,
     "claudeCode.preferredLocation": "panel",
     "claudeCode.selectedModel": "default",
@@ -38,7 +38,7 @@
     "window.title": "${rootName}",
     "git.enableSmartCommit": true,
     "chat.disableAIFeatures": true,
-    "update.showReleaseNotes": false,
+    "update.showReleaseNotes": false,
     "optimusMonitor.graphWindowSeconds": 60,
     "editor.wordWrap": "on",
     "terminal.integrated.scrollback": 10000,

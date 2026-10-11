@@ -73,8 +73,7 @@ They came from the first box.
 
 | Key                                   | Action                                            |
 |---------------------------------------|---------------------------------------------------|
-| `remote.SSH.remotePlatform`           | Replace the two hosts with yours, or delete it    |
-| `chat.tools.urls.autoApprove`         | Delete. It lists URLs from old projects           |
+| `remote.SSH.remotePlatform`           | Not in the repo copy. Add it if you use SSH hosts |
 | `optimusMonitor.graphWindowSeconds`   | Delete. It belongs to an extension not installed  |
 | `markdown-preview-enhanced.*`         | Delete. That extension is not installed           |
 | `claudeCode.*`                        | Keep only if you install the Claude Code extension|
