@@ -98,7 +98,7 @@ To see both bars for one session, run `View: Toggle Status Bar Visibility` and
 `View: Toggle Activity Bar Visibility` from the Command Palette.
 
 Other UI settings in `settings.json`: no command center, no layout controls, no minimap,
-no breadcrumbs, compact tab height, `workbench.editor.showTabs: "single"`.
+no breadcrumbs, compact tab height, `workbench.editor.showTabs: "multiple"` (tabs for the NW viewer; the terminal groups also show one tab).
 `window.title` stays `${rootName}`. It already includes the remote name.
 
 ## Problems
